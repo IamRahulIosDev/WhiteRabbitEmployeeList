@@ -50,6 +50,11 @@ class EmployeeListView: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver("reloadEmployeeList")
+    }
+    
     @objc private func reloadTabledata() {
         customLoader.sharedLoader.hideActivityIndicator()
         self.view.addStatusCustomBar()
